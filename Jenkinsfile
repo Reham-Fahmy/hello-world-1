@@ -33,6 +33,6 @@ pipeline {
                 echo'build deploy stage'
                 }
             }
-        }
+      
     }   
 }
