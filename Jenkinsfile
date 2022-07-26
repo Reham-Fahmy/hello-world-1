@@ -6,11 +6,12 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-        stage('build') {
+        stage('test') {
             steps {
                 sh 'node --version'
-                nodejs(node-10.17){
-                    sh'yarn install'}
+                withGradle()
+                sh'./gradlew -v'
+                
             }
         }
     }
