@@ -9,6 +9,8 @@ pipeline {
         stage('build') {
             steps {
                 sh 'node --version'
+                nodejs(node-10.17){
+                    sh'yarn install'}
             }
         }
     }
