@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
     agent any
     parameters {
@@ -7,13 +9,15 @@ pipeline {
     stages {
         stage("init") {
             steps {
-                echo'build init stage' 
+                script {
+                   gv = load "script.groovy" 
                 }
             }
         }
         stage("build") {
             steps {
-                echo'build2 stage'
+                script {
+                    gv.buildApp()
                 }
             }
         }
@@ -24,15 +28,21 @@ pipeline {
                 }
             }
             steps {
-                echo'build test stage'
+                script {
+                    gv.testApp()
                 }
             }
- 
+        }
         stage("deploy") {
             steps {
-                echo'build deploy stage'
+                script {
+                    gv.deployApp()
                 }
             }
+        }
+    }   
+}
+
      }   
 }
 
