@@ -9,7 +9,7 @@ pipeline {
         stage('test') {
             steps {
                 sh 'node --version'
-                withGradle()
+                withGradle(Gradle)
                 sh'./gradlew -v'
                 
             }
